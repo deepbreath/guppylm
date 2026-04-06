@@ -15,6 +15,8 @@
   <br/>
   <a href="https://www.linkedin.com/pulse/build-your-own-language-model-5-minutes-i-made-mine-hossain--supif/"><img src="https://img.shields.io/badge/Article-LinkedIn-0A66C2?logo=linkedin" alt="LinkedIn Article"/></a>&nbsp;
   <a href="https://arman-bd.medium.com/build-your-own-llm-in-5-minutes-i-made-mine-talk-like-a-fish-e20c338a3d14"><img src="https://img.shields.io/badge/Article-Medium-000000?logo=medium" alt="Medium Article"/></a>
+  <br/><br/>
+  <a href="https://arman-bd.github.io/guppylm/"><img src="https://img.shields.io/badge/Try_in-Browser-64ffda?style=for-the-badge&logo=webassembly&logoColor=white" alt="Browser Demo"/></a>
 </p>
 
 ---
@@ -93,7 +95,13 @@ Guppy:
 
 ## Quick Start
 
-### Chat with Guppy (no training needed)
+### Try in Browser (no install needed)
+
+[![Try in Browser](https://img.shields.io/badge/Try_in-Browser-64ffda?logo=webassembly)](https://arman-bd.github.io/guppylm/)
+
+Runs entirely in your browser via WebAssembly. Downloads a quantized ONNX model (~10 MB) and runs inference locally — no server, no API keys.
+
+### Chat with Guppy in Colab
 
 [![Open in Colab](https://img.shields.io/badge/Chat_in-Colab-F9AB00?logo=googlecolab)](https://colab.research.google.com/github/arman-bd/guppylm/blob/main/use_guppylm.ipynb)
 
@@ -166,9 +174,17 @@ guppylm/
 └── inference.py            Chat interface
 
 tools/
-├── make_colab.py           Generates guppy_colab.ipynb
+├── make_colab.py           Generates Colab notebooks
+├── export_onnx.py          Export model to ONNX (quantized uint8)
 ├── export_dataset.py       Push dataset to HuggingFace
 └── dataset_card.md         HuggingFace dataset README
+
+docs/
+├── index.html              Browser demo (ONNX + WASM)
+├── download.sh             Download model.onnx + tokenizer from HF
+├── model.onnx              Quantized uint8 (~10 MB)
+├── tokenizer.json          BPE tokenizer
+└── guppy.png               Logo (transparent)
 ```
 
 ---

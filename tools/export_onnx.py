@@ -1,7 +1,7 @@
 """
 Export GuppyLM to ONNX format for browser inference via onnxruntime-web.
 
-Exports to web/model.onnx (quantized uint8 by default) + web/tokenizer.json
+Exports to docs/model.onnx (quantized uint8 by default) + web/tokenizer.json
 so the browser demo (web/index.html) can load them — works on GitHub Pages.
 
 Quantization shrinks the model from ~35 MB (float32) to ~9 MB (uint8) with
@@ -145,7 +145,7 @@ def main():
     parser = argparse.ArgumentParser(description="Export GuppyLM to ONNX")
     parser.add_argument("--checkpoint", default="checkpoints/best_model.pt")
     parser.add_argument("--tokenizer", default="data/tokenizer.json")
-    parser.add_argument("--output", default="web/model.onnx")
+    parser.add_argument("--output", default="docs/model.onnx")
     parser.add_argument("--no-quantize", action="store_true", help="Skip uint8 quantization")
     parser.add_argument("--push", action="store_true", help="Upload to HuggingFace repo")
     args = parser.parse_args()
